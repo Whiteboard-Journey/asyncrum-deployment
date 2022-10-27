@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: asyncrum-api
-          image: wlghks0314/asyncrum-api-server:0.7.0
+          image: wlghks0314/asyncrum-api-server:113
           ports:
             - containerPort: 8080
           env:

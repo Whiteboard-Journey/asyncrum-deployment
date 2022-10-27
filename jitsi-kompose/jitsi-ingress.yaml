@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    service: web
+  namespace: jitsi
+  name: jitsi-ingress-alb
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/subnets: subnet-0a32d269ffed435dd, subnet-0b8b4f2da99376f26
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:112269951380:certificate/a96890df-45b9-4d5f-9c0a-69f7ff657443
+spec:
+  rules:
+  - host: meet.asyncrum.com
+    http:
+     paths:
+     - path: "/"
+       pathType: Prefix
+       backend:
+         service:
+           name: jitsi-jitsi-meet-web
+           port:
+             number: 80

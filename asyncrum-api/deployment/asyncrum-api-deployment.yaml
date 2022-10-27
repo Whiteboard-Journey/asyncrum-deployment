@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asyncrum-api
+  namespace: asyncrum
+  labels:
+    app: asyncrum-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: asyncrum-api
+  template:
+    metadata:
+      labels:
+        app: asyncrum-api
+    spec:
+      containers:
+        - name: asyncrum-api
+          image: wlghks0314/asyncrum-api-server:0.7.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: HOST_DNS
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: HOST_DNS
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: DATABASE_URL
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: DATABASE_USERNAME
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: DATABASE_PASSWORD
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: GOOGLE_CLIENT_ID
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: GOOGLE_CLIENT_SECRET
+            - name: NAVER_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: NAVER_CLIENT_ID
+            - name: NAVER_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: NAVER_CLIENT_SECRET
+            - name: SMTP_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: SMTP_USERNAME
+            - name: SMTP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: SMTP_PASSWORD
+            - name: CORS_ALLOWED_ORIGINS
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: CORS_ALLOWED_ORIGINS
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: JWT_SECRET
+            - name: APP_AUTH_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: APP_AUTH_TOKEN_SECRET
+            - name: CLOUD_CREDENTIALS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: CLOUD_CREDENTIALS_ACCESS_KEY
+            - name: CLOUD_CREDENTIALS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: CLOUD_CREDENTIALS_SECRET_KEY

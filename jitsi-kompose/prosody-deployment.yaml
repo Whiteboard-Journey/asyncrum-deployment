@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose-resolved.yaml
+    kompose.version: 1.26.1 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: prosody
+  name: prosody
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: prosody
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose-resolved.yaml
+        kompose.version: 1.26.1 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: prosody
+    spec:
+      containers:
+        - env:
+            - name: JIBRI_RECORDER_PASSWORD
+              value: 85c00dffd57a10857fd13f42c4a101cc
+            - name: JIBRI_RECORDER_USER
+              value: recorder
+            - name: JIBRI_XMPP_PASSWORD
+              value: 44368292340a8221b41376f303601d50
+            - name: JIBRI_XMPP_USER
+              value: jibri
+            - name: JICOFO_AUTH_PASSWORD
+              value: c909a021b06a3f4f472e45158cbfa79e
+            - name: JICOFO_AUTH_USER
+              value: focus
+            - name: JICOFO_COMPONENT_SECRET
+              value: 7ee065e764da5f9b9c871df284ede492
+            - name: JIGASI_XMPP_PASSWORD
+              value: f34db2eb68d0b23d5fc8f7a9c1c4dae2
+            - name: JIGASI_XMPP_USER
+              value: jigasi
+            - name: JVB_AUTH_PASSWORD
+              value: 1247faed4fa07a7b7b346e1e258c11a8
+            - name: JVB_AUTH_USER
+              value: jvb
+            - name: PUBLIC_URL
+              value: https://meet.asyncrum.com
+            - name: TZ
+              value: UTC
+            - name: XMPP_AUTH_DOMAIN
+              value: auth.meet.jitsi
+            - name: XMPP_DOMAIN
+              value: meet.jitsi
+            - name: XMPP_GUEST_DOMAIN
+              value: guest.meet.jitsi
+            - name: XMPP_INTERNAL_MUC_DOMAIN
+              value: internal-muc.meet.jitsi
+            - name: XMPP_INTERNAL_MUC_MODULES
+            - name: XMPP_MODULES
+            - name: XMPP_MUC_DOMAIN
+              value: muc.meet.jitsi
+            - name: XMPP_MUC_MODULES
+            - name: XMPP_RECORDER_DOMAIN
+              value: recorder.meet.jitsi
+          image: jitsi/prosody:latest
+          name: prosody
+          ports:
+            - containerPort: 5222
+            - containerPort: 5347
+            - containerPort: 5280
+          resources: {}
+      restartPolicy: Always
+status: {}

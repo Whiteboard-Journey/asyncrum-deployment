@@ -12,6 +12,7 @@ Asyncrum 서비스의 백엔드 Deployment Manifest 저장소입니다.
 - asyncrum-api: Asyncrum API 서버의 K8s 형상 배포를 위한 K8s yaml 파일들이 존재합니다.
 - jitsi-helm: Jitsi Central K8s 형상 배포를 위한 Helm Chart 저장소입니다.
 - jitsi-kompose: Jitsi Central Docker Compose → K8s yaml 변환 과정을 위한 kompose와 변환된 K8s yaml 파일들이 존재합니다.
+- jenkins: Asyncrum API 서버의 CI를 위한 Jenkins Pipeline Script가 존재합니다.
 
 ## 2. API Server CI/CD WorkFlow
 

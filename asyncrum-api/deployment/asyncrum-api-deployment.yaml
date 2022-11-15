@@ -71,11 +71,11 @@ spec:
                 secretKeyRef:
                   name: asyncrum-api-secret
                   key: SMTP_PASSWORD
-            - name: CORS_ALLOWED_ORIGINS
+            - name: ORIGINS
               valueFrom:
                 secretKeyRef:
                   name: asyncrum-api-secret
-                  key: CORS_ALLOWED_ORIGINS
+                  key: ORIGINS
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:

@@ -1,6 +1,11 @@
+<div align="center">
+
+![asyncrum_image.png](./images/asyncrum_image.png)
+
 # Asyncrum Backend Deployment Manifest
 
-Asyncrum 서비스의 백엔드 Deployment Manifest 저장소입니다.
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FWhiteboard-Journey%2Fasyncrum-deployment&count_bg=%233D71C8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+</div>
 
 ## 목차
 

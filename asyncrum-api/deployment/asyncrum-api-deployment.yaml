@@ -86,6 +86,16 @@ spec:
                 secretKeyRef:
                   name: asyncrum-api-secret
                   key: APP_AUTH_TOKEN_SECRET
+            - name: APP_AUTH_ACCESS_TOKEN_EXPIRY
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: APP_AUTH_ACCESS_TOKEN_EXPIRY
+            - name: APP_AUTH_REFRESH_TOKEN_EXPIRY
+              valueFrom:
+                secretKeyRef:
+                  name: asyncrum-api-secret
+                  key: APP_AUTH_REFRESH_TOKEN_EXPIRY
             - name: CLOUD_CREDENTIALS_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
